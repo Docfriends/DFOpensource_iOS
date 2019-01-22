@@ -1,0 +1,16 @@
+PODS:
+  - df-opensource-ios (0.1.0)
+
+DEPENDENCIES:
+  - df-opensource-ios (from `../`)
+
+EXTERNAL SOURCES:
+  df-opensource-ios:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  df-opensource-ios: ac1ba1c4abe957aa5a58d3b80ff237fe7500f5f4
+
+PODFILE CHECKSUM: 18ef4b2371ee041ccf71697a24bba7a2aec84e34
+
+COCOAPODS: 1.5.3
