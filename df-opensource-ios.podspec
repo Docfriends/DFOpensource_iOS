@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 오픈소스를 쉽게 고지할수 있는 컨트롤러
                        DESC
 
-  s.homepage         = 'https://github.com/Docfriends-Dev/df-opensource-ios'
+  s.homepage         = 'https://github.com/Docfriends/df-opensource-ios'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Docfriends' => 'apps@docfriends.com' }
-  s.source           = { :git => 'https://github.com/Docfriends-Dev/df-opensource-ios.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/Docfriends/df-opensource-ios', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
