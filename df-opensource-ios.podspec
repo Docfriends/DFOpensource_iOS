@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
 오픈소스를 쉽게 고지할수 있는 컨트롤러
                        DESC
 
-  s.homepage         = 'https://github.com/pikachu987/df-opensource-ios'
+  s.homepage         = 'https://github.com/Docfriends-Dev/df-opensource-ios'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Docfriends' => 'apps@docfriends.com' }
