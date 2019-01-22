@@ -56,7 +56,7 @@ open class OpensourceLicenseDetailViewController: UIViewController {
                     NSAttributedString.Key.link: matchString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? "",
                     NSAttributedString.Key.underlineColor: UIColor(red: 6/255, green: 69/255, blue: 173/255, alpha: 1),
                     NSAttributedString.Key.foregroundColor: UIColor(red: 6/255, green: 69/255, blue: 173/255, alpha: 1),
-                    NSAttributedString.Key.underlineStyle: NSUnderlineStyle.styleSingle.rawValue
+                    NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue
                     ], range: range)
             }
         } catch{ }
