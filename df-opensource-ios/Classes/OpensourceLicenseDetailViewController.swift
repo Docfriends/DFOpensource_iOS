@@ -16,10 +16,11 @@ open class OpensourceLicenseDetailViewController: UIViewController {
         let textView = UITextView(frame: .zero)
         textView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(textView)
-        let leadingConstraint = NSLayoutConstraint(item: self.view, attribute: .leading, relatedBy: .equal, toItem: textView, attribute: .leading, multiplier: 1, constant: 0)
-        let trailingConstraint = NSLayoutConstraint(item: self.view, attribute: .trailing, relatedBy: .equal, toItem: textView, attribute: .trailing, multiplier: 1, constant: 0)
-        let topConstraint = NSLayoutConstraint(item: self.view, attribute: .top, relatedBy: .equal, toItem: textView, attribute: .top, multiplier: 1, constant: 0)
-        let bottomConstraint = NSLayoutConstraint(item: self.view, attribute: .bottom, relatedBy: .equal, toItem: textView, attribute: .bottom, multiplier: 1, constant: 0)
+        let itemView = self.view as Any
+        let leadingConstraint = NSLayoutConstraint(item: itemView, attribute: .leading, relatedBy: .equal, toItem: textView, attribute: .leading, multiplier: 1, constant: 0)
+        let trailingConstraint = NSLayoutConstraint(item: itemView, attribute: .trailing, relatedBy: .equal, toItem: textView, attribute: .trailing, multiplier: 1, constant: 0)
+        let topConstraint = NSLayoutConstraint(item: itemView, attribute: .top, relatedBy: .equal, toItem: textView, attribute: .top, multiplier: 1, constant: 0)
+        let bottomConstraint = NSLayoutConstraint(item: itemView, attribute: .bottom, relatedBy: .equal, toItem: textView, attribute: .bottom, multiplier: 1, constant: 0)
         self.view.addConstraints([leadingConstraint, trailingConstraint, topConstraint, bottomConstraint])
         return textView
     }()
