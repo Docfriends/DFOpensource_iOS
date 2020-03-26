@@ -6,17 +6,11 @@ import UIKit
 import SafariServices
 
 open class OpensourceLicenseViewController: UIViewController {
-    private var opensources = [Opensource]()
+    private(set) public var opensources = [Opensource]()
     
-    private lazy var tableView: UITableView = {
+    public let tableView: UITableView = {
         let tableView = UITableView(frame: CGRect.zero, style: UITableView.Style.plain)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(tableView)
-        let leadingConstraint = NSLayoutConstraint(item: self.view ?? UIView(), attribute: .leading, relatedBy: .equal, toItem: tableView, attribute: .leading, multiplier: 1, constant: 0)
-        let trailingConstraint = NSLayoutConstraint(item: self.view ?? UIView(), attribute: .trailing, relatedBy: .equal, toItem: tableView, attribute: .trailing, multiplier: 1, constant: 0)
-        let topConstraint = NSLayoutConstraint(item: self.view ?? UIView(), attribute: .top, relatedBy: .equal, toItem: tableView, attribute: .top, multiplier: 1, constant: 0)
-        let bottomConstraint = NSLayoutConstraint(item: self.view ?? UIView(), attribute: .bottom, relatedBy: .equal, toItem: tableView, attribute: .bottom, multiplier: 1, constant: 0)
-        self.view.addConstraints([leadingConstraint, trailingConstraint, topConstraint, bottomConstraint])
         return tableView
     }()
     
@@ -46,10 +40,21 @@ open class OpensourceLicenseViewController: UIViewController {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        self.view.addSubview(self.tableView)
+        let leadingConstraint = NSLayoutConstraint(item: self.view ?? UIView(), attribute: .leading, relatedBy: .equal, toItem: self.tableView, attribute: .leading, multiplier: 1, constant: 0)
+        let trailingConstraint = NSLayoutConstraint(item: self.view ?? UIView(), attribute: .trailing, relatedBy: .equal, toItem: self.tableView, attribute: .trailing, multiplier: 1, constant: 0)
+        let topConstraint = NSLayoutConstraint(item: self.view ?? UIView(), attribute: .top, relatedBy: .equal, toItem: self.tableView, attribute: .top, multiplier: 1, constant: 0)
+        let bottomConstraint = NSLayoutConstraint(item: self.view ?? UIView(), attribute: .bottom, relatedBy: .equal, toItem: self.tableView, attribute: .bottom, multiplier: 1, constant: 0)
+        self.view.addConstraints([leadingConstraint, trailingConstraint, topConstraint, bottomConstraint])
+
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         self.tableView.delegate = self
         self.tableView.dataSource = self
+    }
+
+    public func tableViewCell(_ cell: UITableViewCell) {
+        
     }
 }
 
@@ -83,6 +88,7 @@ extension OpensourceLicenseViewController: UITableViewDataSource {
         let item = self.opensources[indexPath.row]
         cell.accessoryType = .disclosureIndicator
         cell.textLabel?.text = item.name
+        self.tableViewCell(cell)
         return cell
     }
 }

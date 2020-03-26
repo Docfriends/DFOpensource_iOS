@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		187A30DB21F593280084D81D /* OpensourceLicense+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187A30D921F593280084D81D /* OpensourceLicense+.swift */; };
 		187A30DC21F593280084D81D /* OpensourceLicense.plist in Resources */ = {isa = PBXBuildFile; fileRef = 187A30DA21F593280084D81D /* OpensourceLicense.plist */; };
 		2EAB692615AA2B0E8538C835 /* Pods_df_opensource_ios_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6CE20BD458B513FD185A769 /* Pods_df_opensource_ios_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
@@ -33,7 +32,6 @@
 		104DB52A98EEF9BA49454021 /* Pods-df-opensource-ios_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-df-opensource-ios_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-df-opensource-ios_Tests/Pods-df-opensource-ios_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		13BAE6A5F4561CD94BA3F704 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		170F453AA55A632ADA0337D1 /* Pods-df-opensource-ios_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-df-opensource-ios_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-df-opensource-ios_Example/Pods-df-opensource-ios_Example.release.xcconfig"; sourceTree = "<group>"; };
-		187A30D921F593280084D81D /* OpensourceLicense+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OpensourceLicense+.swift"; sourceTree = "<group>"; };
 		187A30DA21F593280084D81D /* OpensourceLicense.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = OpensourceLicense.plist; sourceTree = "<group>"; };
 		605C1C966354F994EAD84B1D /* Pods-df-opensource-ios_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-df-opensource-ios_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-df-opensource-ios_Tests/Pods-df-opensource-ios_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* df-opensource-ios_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "df-opensource-ios_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,7 +101,6 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				187A30DA21F593280084D81D /* OpensourceLicense.plist */,
-				187A30D921F593280084D81D /* OpensourceLicense+.swift */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for df-opensource-ios";
@@ -329,7 +326,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				187A30DB21F593280084D81D /* OpensourceLicense+.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);

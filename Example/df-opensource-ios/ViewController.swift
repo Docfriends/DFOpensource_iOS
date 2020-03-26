@@ -64,6 +64,11 @@ extension OpensourceLicenseViewController {
     @objc private func backAction(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
     }
+
+    public func opensourceLicesneLoad() {
+        print(self.tableView)
+        print("....")
+    }
 }
 
 extension OpensourceLicenseDetailViewController {

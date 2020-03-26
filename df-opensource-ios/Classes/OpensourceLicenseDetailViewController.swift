@@ -12,15 +12,25 @@ open class OpensourceLicenseDetailViewController: UIViewController {
         return self._opensource
     }
     
-    private lazy var textView: UITextView = {
+    public var foregroundFont: UIFont {
+        return UIFont.systemFont(ofSize: 15)
+    }
+    
+    public var foregroundColor: UIColor {
+        return UIColor.black
+    }
+
+    public var linkUnderlineColor: UIColor {
+        return UIColor(red: 6/255, green: 69/255, blue: 173/255, alpha: 1)
+    }
+    
+    public var linkForegroundColor: UIColor {
+        return UIColor(red: 6/255, green: 69/255, blue: 173/255, alpha: 1)
+    }
+
+    public let textView: UITextView = {
         let textView = UITextView(frame: .zero)
         textView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(textView)
-        let leadingConstraint = NSLayoutConstraint(item: self.view ?? UIView(), attribute: .leading, relatedBy: .equal, toItem: textView, attribute: .leading, multiplier: 1, constant: 0)
-        let trailingConstraint = NSLayoutConstraint(item: self.view ?? UIView(), attribute: .trailing, relatedBy: .equal, toItem: textView, attribute: .trailing, multiplier: 1, constant: 0)
-        let topConstraint = NSLayoutConstraint(item: self.view ?? UIView(), attribute: .top, relatedBy: .equal, toItem: textView, attribute: .top, multiplier: 1, constant: 0)
-        let bottomConstraint = NSLayoutConstraint(item: self.view ?? UIView(), attribute: .bottom, relatedBy: .equal, toItem: textView, attribute: .bottom, multiplier: 1, constant: 0)
-        self.view.addConstraints([leadingConstraint, trailingConstraint, topConstraint, bottomConstraint])
         return textView
     }()
     
@@ -36,12 +46,18 @@ open class OpensourceLicenseDetailViewController: UIViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.addSubview(self.textView)
+        let leadingConstraint = NSLayoutConstraint(item: self.view ?? UIView(), attribute: .leading, relatedBy: .equal, toItem: self.textView, attribute: .leading, multiplier: 1, constant: 0)
+        let trailingConstraint = NSLayoutConstraint(item: self.view ?? UIView(), attribute: .trailing, relatedBy: .equal, toItem: self.textView, attribute: .trailing, multiplier: 1, constant: 0)
+        let topConstraint = NSLayoutConstraint(item: self.view ?? UIView(), attribute: .top, relatedBy: .equal, toItem: self.textView, attribute: .top, multiplier: 1, constant: 0)
+        let bottomConstraint = NSLayoutConstraint(item: self.view ?? UIView(), attribute: .bottom, relatedBy: .equal, toItem: self.textView, attribute: .bottom, multiplier: 1, constant: 0)
+        self.view.addConstraints([leadingConstraint, trailingConstraint, topConstraint, bottomConstraint])
         self.textView.delegate = self
         self.textView.isEditable = false
         
         let attributedString = NSMutableAttributedString(string: self.opensource.license ?? "", attributes: [
-            NSAttributedString.Key.foregroundColor : UIColor.black,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)
+            NSAttributedString.Key.foregroundColor : self.foregroundColor,
+            NSAttributedString.Key.font: self.foregroundFont
             ])
         do{
             let text = attributedString.string
@@ -54,8 +70,8 @@ open class OpensourceLicenseDetailViewController: UIViewController {
                 
                 attributedString.addAttributes([
                     NSAttributedString.Key.link: matchString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? "",
-                    NSAttributedString.Key.underlineColor: UIColor(red: 6/255, green: 69/255, blue: 173/255, alpha: 1),
-                    NSAttributedString.Key.foregroundColor: UIColor(red: 6/255, green: 69/255, blue: 173/255, alpha: 1),
+                    NSAttributedString.Key.underlineColor: self.linkUnderlineColor,
+                    NSAttributedString.Key.foregroundColor: self.linkForegroundColor,
                     NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue
                     ], range: range)
             }
