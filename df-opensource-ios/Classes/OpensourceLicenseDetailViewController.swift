@@ -34,7 +34,7 @@ open class OpensourceLicenseDetailViewController: UIViewController {
         return textView
     }()
     
-    init(_ opensource: Opensource) {
+    public init(_ opensource: Opensource) {
         self._opensource = opensource
         super.init(nibName: nil, bundle: nil)
     }
