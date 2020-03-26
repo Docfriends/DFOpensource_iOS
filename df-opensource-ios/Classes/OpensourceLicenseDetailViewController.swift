@@ -8,23 +8,23 @@ import SafariServices
 open class OpensourceLicenseDetailViewController: UIViewController {
     private var _opensource: Opensource
     
-    public var opensource: Opensource {
+    open var opensource: Opensource {
         return self._opensource
     }
     
-    public var foregroundFont: UIFont {
+    open var foregroundFont: UIFont {
         return UIFont.systemFont(ofSize: 15)
     }
     
-    public var foregroundColor: UIColor {
+    open var foregroundColor: UIColor {
         return UIColor.black
     }
 
-    public var linkUnderlineColor: UIColor {
+    open var linkUnderlineColor: UIColor {
         return UIColor(red: 6/255, green: 69/255, blue: 173/255, alpha: 1)
     }
     
-    public var linkForegroundColor: UIColor {
+    open var linkForegroundColor: UIColor {
         return UIColor(red: 6/255, green: 69/255, blue: 173/255, alpha: 1)
     }
 

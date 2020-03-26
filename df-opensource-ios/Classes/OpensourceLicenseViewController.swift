@@ -53,11 +53,11 @@ open class OpensourceLicenseViewController: UIViewController {
         self.tableView.dataSource = self
     }
 
-    public func tableViewCell(_ cell: UITableViewCell) {
+    open func tableViewCell(_ cell: UITableViewCell) {
         
     }
 
-    public func showDetailViewController(_ opensource: Opensource) {
+    open func showDetailViewController(_ opensource: Opensource) {
         let viewController = OpensourceLicenseDetailViewController(opensource)
         self.navigationController?.pushViewController(viewController, animated: true)
     }
