@@ -56,6 +56,11 @@ open class OpensourceLicenseViewController: UIViewController {
     public func tableViewCell(_ cell: UITableViewCell) {
         
     }
+
+    public func showDetailViewController(_ opensource: Opensource) {
+        let viewController = OpensourceLicenseDetailViewController(opensource)
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
 // MARK: UITableViewDelegate
@@ -71,8 +76,7 @@ extension OpensourceLicenseViewController: UITableViewDelegate {
                 UIApplication.shared.openURL(url)
             }
         } else {
-            let viewController = OpensourceLicenseDetailViewController(opensource)
-            self.navigationController?.pushViewController(viewController, animated: true)
+            self.showDetailViewController(opensource)
         }
     }
 }
