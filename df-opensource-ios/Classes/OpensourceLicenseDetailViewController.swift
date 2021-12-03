@@ -19,7 +19,7 @@ open class OpensourceLicenseDetailViewController: UIViewController {
     open var foregroundColor: UIColor {
         return UIColor.black
     }
-
+    
     open var linkUnderlineColor: UIColor {
         return UIColor(red: 6/255, green: 69/255, blue: 173/255, alpha: 1)
     }
@@ -27,7 +27,7 @@ open class OpensourceLicenseDetailViewController: UIViewController {
     open var linkForegroundColor: UIColor {
         return UIColor(red: 6/255, green: 69/255, blue: 173/255, alpha: 1)
     }
-
+    
     public let textView: UITextView = {
         let textView = UITextView(frame: .zero)
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -58,7 +58,7 @@ open class OpensourceLicenseDetailViewController: UIViewController {
         let attributedString = NSMutableAttributedString(string: self.opensource.license ?? "", attributes: [
             NSAttributedString.Key.foregroundColor : self.foregroundColor,
             NSAttributedString.Key.font: self.foregroundFont
-            ])
+        ])
         do{
             let text = attributedString.string
             let mentionExpression = try NSRegularExpression(pattern: "(?i)https?://(?:www\\.)?\\S+(?:/|\\b)", options: NSRegularExpression.Options.allowCommentsAndWhitespace)
@@ -73,7 +73,7 @@ open class OpensourceLicenseDetailViewController: UIViewController {
                     NSAttributedString.Key.underlineColor: self.linkUnderlineColor,
                     NSAttributedString.Key.foregroundColor: self.linkForegroundColor,
                     NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue
-                    ], range: range)
+                ], range: range)
             }
         } catch{ }
         
@@ -86,12 +86,8 @@ open class OpensourceLicenseDetailViewController: UIViewController {
 // MARK: UITextViewDelegate
 extension OpensourceLicenseDetailViewController: UITextViewDelegate{
     public func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
-        if #available(iOS 9.0, *) {
-            let viewController = SFSafariViewController(url: URL)
-            self.present(viewController, animated: true, completion: nil)
-        } else {
-            UIApplication.shared.openURL(URL)
-        }
+        let viewController = SFSafariViewController(url: URL)
+        self.present(viewController, animated: true, completion: nil)
         return false
     }
 }

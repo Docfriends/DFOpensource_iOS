@@ -18,7 +18,7 @@ open class OpensourceLicenseViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         
         guard let plistPath = plistPath,
-            let array = NSArray(contentsOfFile: plistPath) else { return }
+              let array = NSArray(contentsOfFile: plistPath) else { return }
         
         let opensources = array.compactMap { element -> Opensource? in
             let value = element as? [String: String]
@@ -40,23 +40,23 @@ open class OpensourceLicenseViewController: UIViewController {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.view.addSubview(self.tableView)
         let leadingConstraint = NSLayoutConstraint(item: self.view ?? UIView(), attribute: .leading, relatedBy: .equal, toItem: self.tableView, attribute: .leading, multiplier: 1, constant: 0)
         let trailingConstraint = NSLayoutConstraint(item: self.view ?? UIView(), attribute: .trailing, relatedBy: .equal, toItem: self.tableView, attribute: .trailing, multiplier: 1, constant: 0)
         let topConstraint = NSLayoutConstraint(item: self.view ?? UIView(), attribute: .top, relatedBy: .equal, toItem: self.tableView, attribute: .top, multiplier: 1, constant: 0)
         let bottomConstraint = NSLayoutConstraint(item: self.view ?? UIView(), attribute: .bottom, relatedBy: .equal, toItem: self.tableView, attribute: .bottom, multiplier: 1, constant: 0)
         self.view.addConstraints([leadingConstraint, trailingConstraint, topConstraint, bottomConstraint])
-
+        
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
-
+    
     open func tableViewCell(_ cell: UITableViewCell) {
         
     }
-
+    
     open func showDetailViewController(_ opensource: Opensource) {
         let viewController = OpensourceLicenseDetailViewController(opensource)
         self.navigationController?.pushViewController(viewController, animated: true)
@@ -69,12 +69,8 @@ extension OpensourceLicenseViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: false)
         let opensource = self.opensources[indexPath.row]
         if let urlPath = opensource.urlPath, urlPath != "", let url = URL(string: urlPath) {
-            if #available(iOS 9.0, *) {
-                let viewController = SFSafariViewController(url: url)
-                self.present(viewController, animated: true, completion: nil)
-            } else {
-                UIApplication.shared.openURL(url)
-            }
+            let viewController = SFSafariViewController(url: url)
+            self.present(viewController, animated: true, completion: nil)
         } else {
             self.showDetailViewController(opensource)
         }
