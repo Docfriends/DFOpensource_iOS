@@ -20,6 +20,7 @@ open class OpensourceLicenseViewController: UIViewController {
         guard let plistPath = plistPath,
             let array = NSArray(contentsOfFile: plistPath) else { return }
         
+        // 오픈소스 데이터 추출
         let opensources = array.compactMap { element -> Opensource? in
             let value = element as? [String: String]
             return Opensource(name: value?["name"], license: value?["license"], urlPath: value?["urlPath"])
@@ -90,6 +91,7 @@ extension OpensourceLicenseViewController: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         let item = self.opensources[indexPath.row]
+        // > 들어가있는 모양
         cell.accessoryType = .disclosureIndicator
         cell.textLabel?.text = item.name
         self.tableViewCell(cell)
