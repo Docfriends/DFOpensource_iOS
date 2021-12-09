@@ -88,6 +88,7 @@ extension OpensourceLicenseViewController: UITableViewDataSource {
         let item = self.opensources[indexPath.row]
         cell.accessoryType = .disclosureIndicator
         cell.textLabel?.text = item.name
+        cell.selectionStyle = .none
         self.tableViewCell(cell)
         return cell
     }
